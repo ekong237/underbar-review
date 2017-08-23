@@ -140,8 +140,19 @@
           }
         });
       } else if (iterator){
-        var sorted = array.sort();
+        var mutated = [];
+        copyArr.forEach(function(element){
+          //var transformation = iterator(element);
+          if (!mutated.includes(iterator(element)) && (mutated.length <= result.length)){
+
+            mutated.push(iterator(element));
+            console.log(mutated);
+            result.push(element);
+          }
+        });
       }
+    return result;
+  
     
   };
 
